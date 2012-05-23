@@ -58,6 +58,33 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "\n";
 	}
 	cout << "此数独有" << nCount << "个元素" << "\n";
+
+	vector<vector<vector<int>>> results;
+	dwBeginTime = ::timeGetTime();
+	objSudokuGame.ComputeResult(results);
+	dwEndTime = ::timeGetTime();
+	cout << "计算数独可行解耗时 " << dwEndTime - dwBeginTime << " 毫秒\n";
+	unsigned int unResultAmount = results.size();
+	cout << "此数独有" << unResultAmount << "个解，如下：\n";
+
+	vector<vector<vector<int>>>::iterator iter1 = results.begin();
+	for (; iter1 != results.end(); ++iter1) {
+		vector<vector<int>> &vec2 = *iter1;
+		vector<vector<int>>::iterator iter2 = vec2.begin();
+		for (; iter2 != vec2.end(); ++iter2) {
+			vector<int> &vec3 = *iter2;
+			vector<int>::iterator iter3 = vec3.begin();
+			for (; iter3 != vec3.end(); ++iter3) {
+				cout << *iter3 << " ";
+			}
+			cout << "\n";
+		}
+		cout << "\n\n";
+	}
+
+	cout << "计算数独可行解耗时 " << dwEndTime - dwBeginTime << " 毫秒\n";
+	cout << "此数独有" << unResultAmount << "个解\n";
+
 	return 0;
 }
 

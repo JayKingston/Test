@@ -8,7 +8,7 @@ CSudokuGame::CSudokuGame()
 	{
 		for (int j = 0; j < 9; j++)	{ m_data[i][j] = 0;	m_user[i][j] = 0; }
 	}
-	m_bCompute = false;
+	m_bCompute = true;
 }
 
 CSudokuGame::~CSudokuGame()
